@@ -1,0 +1,305 @@
+{
+  "active": true,
+  "connections": {
+    "create_event": {
+      "ai_tool": [
+        [
+          {
+            "node": "[MCP Server] Google Calendar",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "search_event": {
+      "ai_tool": [
+        [
+          {
+            "node": "[MCP Server] Google Calendar",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "search_all_events": {
+      "ai_tool": [
+        [
+          {
+            "node": "[MCP Server] Google Calendar",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "delete_event": {
+      "ai_tool": [
+        [
+          {
+            "node": "[MCP Server] Google Calendar",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_event": {
+      "ai_tool": [
+        [
+          {
+            "node": "[MCP Server] Google Calendar",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-26T01:11:54.117Z",
+  "id": "YtKUrJYWNyWtqQ1u",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "2. MCP Google Calendar",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "123123"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        720
+      ],
+      "id": "ed5c5335-1e33-4ef2-814b-897ae659b8dc",
+      "name": "[MCP Server] Google Calendar",
+      "webhookId": "db6bc79d-ba32-41c4-b492-f0f5bbcb8fd3"
+    },
+    {
+      "parameters": {
+        "content": "[![fazer.ai](https://framerusercontent.com/images/HqY9djLTzyutSKnuLLqBr92KbM.png?scale-down-to=256)](https://fazer.ai?utm_source=n8n&utm_campaign=sec-ep2&utm_medium=cw-2)\n\n## Esse é um template faça você mesmo do canal\n## Lucas Moreira\n\n### Inscreva-se no nosso canal no YouTube\n[![YouTube Lucas Moreira](https://img.shields.io/youtube/channel/subscribers/UCtmp6SxzLscu0GRTbgM8FTw?style=flat-square&logo=youtube&label=Inscreva-se&color=f00)](https://youtube.com/@eulucassmoreira?si=0lH7hwX9pukjhmPQ)\n\n### Siga nosso GitHub\n[![GitHub fazer.ai](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&label)](https://github.com/fazer-ai)\n",
+        "height": 440,
+        "width": 550,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        220
+      ],
+      "id": "d49bb485-5b1c-48bd-9219-fffe4cd0f18b",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Quer entender como funciona?\n\n\n### Assista o vídeo, deixe um like, e se inscreva no canal para ter acesso a mais workflows como esse!\n\n[![IMAGE ALT TEXT HERE](https://i1.ytimg.com/vi_webp/cvTWGNJGAu4/maxresdefault.webp)](https://www.youtube.com/watch?v=cvTWGNJGAu4)",
+        "height": 440,
+        "width": 500,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        260,
+        220
+      ],
+      "id": "d3373dcc-2eab-4078-b414-12974a4a14ac",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "![Chatwoot](https://app.chatwoot.com/brand-assets/logo_dark.svg)",
+        "height": 100,
+        "width": 280,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        520
+      ],
+      "id": "eff8e329-b22f-4802-b3ba-a60b156fc6e1",
+      "name": "Sticky Note23"
+    },
+    {
+      "parameters": {
+        "content": "## 2. MCP Google Calendar",
+        "height": 80,
+        "width": 540,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        120
+      ],
+      "id": "fd9bed08-b75f-4637-88f9-6bee30ef1775",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+        "additionalFields": {
+          "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -180,
+        940
+      ],
+      "id": "8ff8c626-0c60-456b-a74a-56c5e7131fe1",
+      "name": "create_event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "gZkHeXujZo71Ubpu",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        940
+      ],
+      "id": "8eee5437-1a8a-469c-bc17-ddaa29203d9d",
+      "name": "search_event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "gZkHeXujZo71Ubpu",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "返回特定时间段内的事件。\n\n日期必须以完整的日期时间格式提供。\n示例： 要搜索2025年1月1日当天的所有事件：\n\n-After (之后): \"2025-01-01T00:00:00\"\n-Before (之前): \"2025-01-01T23:59:59\"",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id"
+        },
+        "returnAll": true,
+        "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
+        "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        940
+      ],
+      "id": "1d065e85-d28e-49c6-8846-5287bbba7b06",
+      "name": "search_all_events",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "gZkHeXujZo71Ubpu",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        600,
+        940
+      ],
+      "id": "a4a7deba-b21b-42bf-863a-9d2a69a4e4ab",
+      "name": "delete_event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "gZkHeXujZo71Ubpu",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "calendar": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Calendar', ``, 'string') }}",
+          "mode": "id"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', ``, 'string') }}",
+        "updateFields": {
+          "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ``, 'string') }}",
+          "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+          "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        940
+      ],
+      "id": "f1987e53-1299-40df-b38c-da1c9af70f03",
+      "name": "update_event",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "gZkHeXujZo71Ubpu",
+          "name": "Google Calendar account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-06-25T08:58:20.960Z",
+      "updatedAt": "2025-06-25T08:58:20.960Z",
+      "id": "1GrKxNdUyyeu4tat",
+      "name": "Lucas Moreira"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-26T14:23:09.361Z",
+  "versionId": "4eb695e7-ccec-46b2-ad70-04273c7404a5"
+}
