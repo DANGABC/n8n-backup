@@ -1,0 +1,256 @@
+{
+  "active": false,
+  "connections": {
+    "回傅原始和清理後的内容": {
+      "main": [
+        [
+          {
+            "node": "AI绘图高手",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "绘图模型": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI绘图提示词",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI绘图提示词": {
+      "main": [
+        [
+          {
+            "node": "回傅原始和清理後的内容",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI绘图高手": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "AI绘图提示词",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-11T10:02:47.149Z",
+  "id": "gDzTfFg1eYxOHcrW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "google 绘图流",
+  "nodes": [
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.messages }}{{ $('WhatsApp Trigger').item.json.contacts }}{{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -400,
+        200
+      ],
+      "id": "4404e61f-1a63-4516-af22-6e5c1d5cdd1b",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "jsCode": "//從上一個節點 AI Agent1 取得 output 欄位\nconst inputData = $input.first().json.output;\n\n// 清理文本函數\nconst cleanText=(text)=>{\n  if(!text)return \"\";\n  return text\n    //移除 markdown 星號、鹿線、程式碼符號、括號等\n    .replace(/[_*`[\\](){}!]/g,' ')\n    // 移除多餘空白\n    .replace(/\\s+/g,' ')\n    //移除非必要的雙引號\n    .replace(/[\"]/g,\"'\")\n    // 補充移除 Markdown 粗體標記(例如 **)\n    .replace(/\\*\\*/g,' ')\n    //補充限制長度(保守設上限 3000)\n    .substring(0,3000)\n    .trim();\n};\n\nconst cleanedContent = cleanText(inputData);\n\n// 回傅原始和清理後的内容\nreturn {\n  json:{\n    originalContent:inputData,\n    cleanContent:cleanedContent\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        -80
+      ],
+      "id": "11d08a83-0ac7-4263-a102-b41a1b9ab3d1",
+      "name": "回傅原始和清理後的内容"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "={{ $if( $json && $json.candidates[0].content.parts[1].inlineData.data, \"candidates[0].content.parts[1].inlineData.data\", \"candidates[0].content.parts[0].inlineData.data\") }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        340,
+        -80
+      ],
+      "id": "8d5913ee-b82d-4cfd-a9ad-e38db1f5521d",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "modelName": "models/imagen-3.0-generate-002",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        200
+      ],
+      "id": "19f06c0c-dd1a-44ab-9f88-a187c1834377",
+      "name": "绘图模型",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "50MbG4wXRFbms8eN",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "鱼",
+        "options": {
+          "systemMessage": "你是一個AI绘图高手根掾使用者需求產生一張图片提示詞不要有開頭無異議詞句"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -520,
+        -80
+      ],
+      "id": "03ac6f49-0f41-49ca-8a82-7d5b449fda4e",
+      "name": "AI绘图提示词"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-preview-image-generation:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"role\": \"user\",\n      \"parts\": [\n        {\n          \"text\": \"Generate a {{ $json.cleanContent }} photo\"\n        }\n      ]\n    }\n  ],\n  \"generationConfig\": {\n    \"responseModalities\": [\n      \"TEXT\",\n      \"IMAGE\"\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        -80
+      ],
+      "id": "ca10056a-d1e4-470a-bdb6-07a0f1a8418b",
+      "name": "AI绘图高手",
+      "retryOnFail": true,
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "hdtKUlDelaOsAu8P",
+          "name": "Gemini API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://evo-jk84s0440.5.78.99.33.sslip.io/message/sendMedia/{{ $('发信者资料第一站').item.json.instance_name }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('发信者资料第一站').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('发信者资料第一站').item.json.chat_id }}"
+            },
+            {
+              "name": "mediatype",
+              "value": "=image"
+            },
+            {
+              "name": "mimetype",
+              "value": "image/png"
+            },
+            {
+              "name": "caption"
+            },
+            {
+              "name": "media",
+              "value": "https://s3.amazonaws.com/atendai/company-3708fcdf-954b-48f8-91ff-25babaccac67/1712605171932.jpg"
+            },
+            {
+              "name": "fileName",
+              "value": "Imagem.png"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        -80
+      ],
+      "id": "4f28b2ae-a18e-4d61-879a-f4b398279253",
+      "name": "画图模块回复"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        -340
+      ],
+      "id": "886dd38b-ca88-4357-a839-efc91b21fb02",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {
+    "AI绘图提示词": [
+      {
+        "json": {
+          "output": "一条流线型、优雅的鱼，它的鱼鳞闪烁着虹光，呈现出深蓝、翠绿和金色的渐变，正缓慢而自在地游弋在清澈、深邃的海洋中。阳光从水面穿透下来，形成丁达尔效应的斑驳光束，照亮了鱼的身体和周围细小的浮游生物。背景是摇曳生姿的珊瑚礁和海草，营造出宁静而梦幻的水下世界。超高细节，电影级画质，艺术摄影，光线追踪，8K。"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-17T13:00:39.341Z",
+  "versionId": "7510aeab-e1ad-406b-8888-1162ad5ca585"
+}
