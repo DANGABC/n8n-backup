@@ -1,0 +1,292 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-10T15:38:43.763Z",
+  "id": "livCAF00XYb6KZRm",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "evolution-api",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "davebot",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1100,
+        60
+      ],
+      "id": "6b1bceda-4b06-4350-8971-17cdf296b66b",
+      "name": "Webhook",
+      "webhookId": "ca1d749d-8ce2-4548-b172-6884619cd5bf"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://evo-jk84s0440.5.78.99.33.sslip.io/message/sendText/{{ $('Edit Fields1').item.json.instance_name }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Edit Fields1').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Edit Fields1').item.json.chat_id }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        -80
+      ],
+      "id": "948d92a3-e7d1-423f-94ab-59758f151c24",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=我要一个。给讲个。 ",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -600,
+        40
+      ],
+      "id": "8f4fe2ac-c8aa-4e74-ac9b-b2c2c049628f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        240
+      ],
+      "id": "779eb743-89d1-4274-8ba8-7ddc96457a37",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Sww1rrz0nrBbqRoP",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f8c1fa96-750a-4012-82e2-4328cc5576c5",
+              "name": "chat_id",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "0a9b09a6-fa05-45d9-9f5a-8bda4e045e38",
+              "name": "instance_name",
+              "value": "={{ $json.body.instance }}",
+              "type": "string"
+            },
+            {
+              "id": "7558d0fa-0f8e-41ab-b6ae-c64e1c6751f4",
+              "name": "apikey",
+              "value": "={{ $json.body.apikey }}",
+              "type": "string"
+            },
+            {
+              "id": "6459aa74-bc5c-416f-937d-dd761cbe60fa",
+              "name": "server_url",
+              "value": "={{ $json.body.server_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a0304b0f-90fa-4fe9-956c-b98ab6c2b318",
+              "name": "text",
+              "value": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "9608b8d7-66ba-4c96-bf40-cf0674ed32de",
+              "name": "sender",
+              "value": "={{ $json.body.sender }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -860,
+        60
+      ],
+      "id": "1ceb5ab4-0c7d-47fa-a016-d7d548949578",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "options_Create_instance": {}
+      },
+      "type": "n8n-nodes-evolution-api-english.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        180
+      ],
+      "id": "53699b84-af8f-47fb-a507-7e755d77a164",
+      "name": "Evolution API",
+      "credentials": {
+        "evolutionApi": {
+          "id": "SxrU5LHw0Y4ftab0",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options_Create_instance": {}
+      },
+      "type": "n8n-nodes-evolution-api-english.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        40,
+        240
+      ],
+      "id": "abdff51e-15e4-4b5e-bffb-798e0cdc5806",
+      "name": "Evolution API1"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        40,
+        40
+      ],
+      "id": "efc22356-7502-4f86-a777-cd7a8970a4c5",
+      "name": "Wait",
+      "webhookId": "b6ca68df-d89c-4d99-a822-31d9954a2d39"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Edit Fields1').item.json.ulr_server }}/message/sendText/{{ $('Edit Fields1').item.json.instance_name }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Edit Fields1').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Edit Fields1').item.json.chat_id }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        40
+      ],
+      "id": "e7c8d5df-c3ce-4fdd-a635-fe2ee13f0739",
+      "name": "HTTP Request1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-17T13:01:19.530Z",
+  "versionId": "ad677832-a87a-443f-93bc-99ff7bba964a"
+}
