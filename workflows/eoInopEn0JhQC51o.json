@@ -1,0 +1,1006 @@
+{
+  "active": false,
+  "connections": {
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Google Drive1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Drive2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        []
+      ]
+    },
+    "Google Drive2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Google Drive3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Docs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Google Docs2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs1": {
+      "main": [
+        [
+          {
+            "node": "Google Docs3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "Google Drive4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-22T02:29:19.263Z",
+  "id": "eoInopEn0JhQC51o",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "获取资料上传到网盘",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://drive.google.com/file/d/1bJGZ9aiP3b1DRbD40P7NBIC98nDv_BUo/view?usp=drive_link",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -460,
+        -720
+      ],
+      "id": "ab70c514-f9be-427a-86e8-c6eac1585288",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.parameters.file_name.replaceAll(\".pdf\",\"\") }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "12434QfjE-PJCLFD52ob6jaEa0sdFSilF",
+          "mode": "list",
+          "cachedResultName": "安利价钱表-n8n",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/12434QfjE-PJCLFD52ob6jaEa0sdFSilF"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1240,
+        -220
+      ],
+      "id": "29925d72-87c0-4585-be13-8fda6ee5c838",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cloud.llamaindex.ai/api/v1/parsing/upload",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "compact_markdown_table",
+              "value": "true"
+            },
+            {
+              "name": "extract_charts",
+              "value": "true"
+            },
+            {
+              "name": "structured_output",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        -380
+      ],
+      "id": "86ff9011-05e7-4d8b-9df4-22c845687091",
+      "name": "HTTP Request1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {
+          "mimeType": ".pdf"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -220,
+        -760
+      ],
+      "id": "7b1f71e4-8cae-47a9-8029-50a2312e3695",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        -380
+      ],
+      "id": "bd701699-3830-41b4-9bf4-38044d773f14",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        -380
+      ],
+      "id": "33d3e054-a481-4f4a-bcc8-84b8dd5b0861",
+      "name": "HTTP Request2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "aa5cbd7f-b035-46fc-b703-0afa98e7b20f",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "PENDING",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        740,
+        -380
+      ],
+      "id": "da9da222-3af7-4b17-b517-c33c094de39d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        900,
+        -120
+      ],
+      "id": "d58be68e-0c64-4a5a-a45d-4de1fb90eef4",
+      "name": "Wait",
+      "webhookId": "64679ba4-7d32-43b3-a5bf-11474aff08a5"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $('HTTP Request2').item.json.id }}/details ",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        -400
+      ],
+      "id": "5e38c9a8-e7d1-4dd3-8a90-882bc6021d1b",
+      "name": "HTTP Request3",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "=extract_images",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1520,
+        -420
+      ],
+      "id": "61f22b8a-64a4-4b40-b78b-11ebb9556965",
+      "name": "Google Drive1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "jobInfo.images",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        -620
+      ],
+      "id": "cb10b837-edd0-4b0a-a880-cb6210a65a28",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. 取得 binary key (例如 'audio' 或 'data')\nconst binaryKey = Object.keys(items[0].binary)[0];\n\n// 2. 自訂 UUID 產生器 (不使用 crypto)\nfunction generateUUID() {\n  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    const r = Math.random() * 16 | 0;\n    const v = c === 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n}\n\n// 3. 產生新檔名，並直接指定副檔名為 .mp3 (這是修改的重點)\n// 我們不再從原始檔名獲取副檔名，而是直接寫死為 'mp3'\nconst newFileName = `${generateUUID()}.pdf`;\n\n// 4. 返回結果，包含新的 json 數據和原始的 binary 檔案\nreturn [{\n  // 在 json 物件中放入新的檔名\n  json: {\n    fileName: newFileName\n  },\n  // 將上一節點的二進位檔案原封不動地傳下去\n  binary: items[0].binary\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -740
+      ],
+      "id": "d7766d48-05d2-4189-86cd-357bc582bac7",
+      "name": "Code1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1720,
+        -540
+      ],
+      "id": "0363f6c2-ed8e-4717-b0c6-1f3911f6a4e2",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $('HTTP Request1').item.json.id }}/result/image/{{ $json['jobInfo.images'] }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        -540
+      ],
+      "id": "e3567dc0-9cb9-4c70-9881-c312452f2396",
+      "name": "HTTP Request4",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $('HTTP Request1').item.json.id }}/result/raw/markdown",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        -140
+      ],
+      "id": "980a4e7e-273e-436c-b674-c0c3e8bf9651",
+      "name": "HTTP Request5",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1Fd2bTcnVSsDba1wErQVT6ByKXFYSK9oI",
+          "mode": "list",
+          "cachedResultName": "Amway_Product_Catalogue_ZH_202504.pdf",
+          "cachedResultUrl": "https://drive.google.com/file/d/1Fd2bTcnVSsDba1wErQVT6ByKXFYSK9oI/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        20,
+        -380
+      ],
+      "id": "c2de3aa3-a067-4317-98c6-ee58a7937ae3",
+      "name": "Google Drive2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $json['jobInfo.images'] }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "=https://drive.google.com/drive/folders/1ybSi784ZcHFEoSFKAour8dp7RQNa5k-O?usp=sharing",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2220,
+        -540
+      ],
+      "id": "e5324ae7-3802-495e-88fb-bb784cf56b6a",
+      "name": "Google Drive3",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=report: {{ $json.data }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=#OverviewYou are a great research assiatant, you exel in summarizing reports in to a abstractthat preserves the full content.\n\n#SOP\nUnderstand the report\nSummarize the report\nProduce a well constructed abstract\n\n# output style\nMarkdown with chapter hierarchy and list points\n\n# No compromise\nDo not generate any information that is not in the report"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1860,
+        -140
+      ],
+      "id": "da55bc9d-d6fe-4e5f-a5df-bffbe3b59d2b",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        80
+      ],
+      "id": "2f968270-5128-4de6-9bf9-3d1c34bc622e",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "50MbG4wXRFbms8eN",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87d8478a-ac7a-4f68-8bae-17c3f312fae3",
+              "name": "file_name",
+              "value": "={{ $('HTTP Request3').item.json.parameters.file_name }}",
+              "type": "string"
+            },
+            {
+              "id": "553d965b-63d6-48d5-8d64-fd012aa1d174",
+              "name": "originalMarkdown",
+              "value": "={{ $('HTTP Request5').item.json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "f1c751d1-115c-4385-81b8-1ce32c476631",
+              "name": "SummaryMarkdown",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        -140
+      ],
+      "id": "d00da727-b5f7-449a-b786-caf4cb225af4",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "folderId": "={{ $('Google Drive').item.json.id }}",
+        "title": "=Summary {{ $json.file_name }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        -220
+      ],
+      "id": "064e4996-ef07-4ffa-988d-30fa070f1b46",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "VY1Fbzx23PDQE6bB",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "folderId": "={{ $('Google Drive').item.json.id }}",
+        "title": "=Original {{ $json.file_name }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        -40
+      ],
+      "id": "9a9d7862-e300-4e28-88e7-039372069c7d",
+      "name": "Google Docs1",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "VY1Fbzx23PDQE6bB",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('Edit Fields').item.json.SummaryMarkdown }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        -220
+      ],
+      "id": "9e20887b-6bd3-4960-bc14-7c78a12c9610",
+      "name": "Google Docs2",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "VY1Fbzx23PDQE6bB",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('Edit Fields').item.json.originalMarkdown }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        -20
+      ],
+      "id": "6218dd74-e6ad-4ceb-b64d-11c5eb508f48",
+      "name": "Google Docs3",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "VY1Fbzx23PDQE6bB",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $('HTTP Request1').item.json.id }}/result/xlsx",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        300
+      ],
+      "id": "f33920d8-7e0d-4b2a-8afe-227735d17d2a",
+      "name": "HTTP Request6",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('HTTP Request3').item.json.parameters.file_name.replaceAll(\"pdf\",\"xlsx\") }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1880,
+        300
+      ],
+      "id": "3ea7d822-5311-4882-9044-1c499d9d3a63",
+      "name": "Google Drive4",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.cloud.llamaindex.ai/api/v1/parsing/job/{{ $('HTTP Request1').item.json.id }}/result/json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        560
+      ],
+      "id": "b84defc4-eb34-49d8-9048-7b7a38070a5a",
+      "name": "HTTP Request7",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hmltY7Sj87266YwH",
+          "name": "Llamalndex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "pages",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1720,
+        560
+      ],
+      "id": "6e26fdaf-74ef-4693-a122-4b9f1aaf62e0",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "name": "={{ $('HTTP Request3').item.json.parameters.file_name.replaceAll(\"pdf\",\"json\") }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1920,
+        560
+      ],
+      "id": "58cf396c-dab4-406b-b0ac-8bbea56df17f",
+      "name": "Google Drive5",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ZbtfTapePKyc3Fz6",
+          "name": "Coolify-Google Drive-boonchingang0@gmail.com"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-22T09:50:22.390Z",
+  "versionId": "d35c8057-0c35-4f62-a7c7-5edb49e4812e"
+}
